@@ -1,8 +1,6 @@
 # Installing JupyterHub in AKS
 
-## create postgres db
-## will be used for JupyterHub
-create postgres db
+## create postgres db - will be used for JupyterHub
 ```
 KUBE_GROUP=<AKS_RESOURCEGROUP_NAME>
 POSTGRES_GROUP=<POSTGRES_RESOURCEGROUP_NAME>
@@ -48,8 +46,7 @@ az postgres server update --resource-group $POSTGRES_GROUP --name $POSTGRES_NAME
 az storage account create --resource-group  MC_$(echo $KUBE_GROUP)_$(echo $KUBE_NAME)_$(echo $LOCATION) --name $STORAGE_ACCOUNT --location $LOCATION --sku Standard_LRS --kind StorageV2 --access-tier hot --https-only false
 ```
 
-## create azure file storage class 
-## delete existing storageclass azurefile before or edit 
+## create azure file storage class -  delete existing storageclass azurefile before or edit 
 ```
 kubectl apply -f storageclass.yaml
 ```
